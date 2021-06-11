@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ParkingPlaneAssistant.Consumer": {
+      "commandName": "Project",
+      "commandLineArgs": "recommend -m A395 -s \"10/5/2021 10:00\" -e \"10/6/2021 12:00\""
+    }
+  }
+}

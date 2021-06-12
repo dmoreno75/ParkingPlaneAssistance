@@ -23,4 +23,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore api/FrozenLand.PlaneParking.API/FrozenLand.PlaneParking.API.sln
     - name: Test
-      run: dotnet test --no-build --verbosity normal api/FrozenLand.PlaneParking.Core.Tests
+      run: dotnet test --no-build --verbosity normal api/FrozenLand.PlaneParkingAssistant.Core.Tests/FrozenLand.PlaneParkingAssistant.Core.Tests.csproj

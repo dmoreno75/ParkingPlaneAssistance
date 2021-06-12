@@ -1,4 +1,4 @@
-name: .NET
+name: .NET Parking Plane Assistant API
 
 on:
   push:

@@ -52,7 +52,7 @@ namespace FrozenLand.PlaneParkingAssistant.Core.Tests
 
 
 		[Test]
-		public void WhenRecommendsItReturnsNullIfNotAvailableSlots()
+		public void WhenRecommendsItThrowsExceptionIfNotAvailableSlots()
 		{
 			var dateTimeRange = new DateTimeRange(DateTime.Now, DateTime.Now.AddDays(1));
 
@@ -61,8 +61,7 @@ namespace FrozenLand.PlaneParkingAssistant.Core.Tests
 				SlotsConfiguration.Builder(1, PlaneType.Props),
 			}, mappingRepository);
 
-			var slot = parkingSpace.Recommend("A380", dateTimeRange);
-			Assert.IsNull(slot);
+			Assert.Throws<NotSlotsAvailableException>(()=> parkingSpace.Recommend("A380", dateTimeRange));
 		}
 
 		[Test]
@@ -92,7 +91,7 @@ namespace FrozenLand.PlaneParkingAssistant.Core.Tests
 		public void WhenRecommendsAndNotPropsParkingAvailable_ItReturnsJetsAvailableSlot(
 			int propsSpaces, int jetsSpaces, int jumbosSpaces,
 			string modelBooked, string modelRecommended,
-			PlaneType expectedType, bool recommendReturnsNull)
+			PlaneType expectedType, bool recommendThrowsException)
 		{
 			var dateTimeRange = new DateTimeRange(DateTime.Now, DateTime.Now.AddDays(1));
 
@@ -104,13 +103,15 @@ namespace FrozenLand.PlaneParkingAssistant.Core.Tests
 			}, mappingRepository);
 
 			parkingSpace.Book(modelBooked, new DateTimeRange(DateTime.Now, DateTime.Now.AddDays(1)));
-			var slot = parkingSpace.Recommend(modelRecommended, dateTimeRange);
-			if (recommendReturnsNull)
+
+
+			if (recommendThrowsException)
 			{
-				Assert.IsNull(slot);
+				Assert.Throws<NotSlotsAvailableException>(new TestDelegate(() => parkingSpace.Recommend(modelRecommended, dateTimeRange)));
 			}
 			else
 			{
+				var slot = parkingSpace.Recommend(modelRecommended, dateTimeRange);
 				Assert.IsNotNull(slot);
 				Assert.AreEqual(expectedType, slot.Type);
 			}

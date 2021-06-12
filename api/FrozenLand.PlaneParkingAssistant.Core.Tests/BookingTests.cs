@@ -52,10 +52,8 @@ namespace FrozenLand.PlaneParkingAssistant.Core.Tests
 
 			var slotOcuppancy = parkingSpace.Book("E195", dateTimeRange);
 			Assert.IsNotNull(slotOcuppancy);
-			//Assert.AreEqual(PlaneType.Props, slot.Type);
 
-			var slotOcuppancy2 = parkingSpace.Book("E195", dateTimeRange);
-			Assert.IsNull(slotOcuppancy2);
+			Assert.Throws<NotSlotsAvailableException>(() => parkingSpace.Book("E195", dateTimeRange));
 		}
 
 		[Test]

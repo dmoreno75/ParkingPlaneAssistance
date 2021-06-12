@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using CommandLine;
-
-using ParkingPlaneAssistant.Consumer.Commands;
 
 namespace ParkingPlaneAssistant.Consumer
 {

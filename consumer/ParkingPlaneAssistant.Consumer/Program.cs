@@ -1,7 +1,6 @@
 ﻿using CommandLine;
 using ParkingPlaneAssistant.Consumer.Commands;
 using System;
-using System.Threading.Tasks;
 
 namespace ParkingPlaneAssistant.Consumer
 {

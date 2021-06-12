@@ -75,7 +75,7 @@ namespace FrozenLand.PlaneParkingAssistant.Core.Tests
 				SlotsConfiguration.Builder(1, PlaneType.Props),
 			}, mappingRepository);
 
-			Assert.Throws<NotRecognisedModel>(new TestDelegate(() => parkingSpace.Recommend("XXX", dateTimeRange)));
+			Assert.Throws<NotRecognisedModelException>(new TestDelegate(() => parkingSpace.Recommend("XXX", dateTimeRange)));
 
 		}
 

@@ -22,9 +22,9 @@ namespace FrozenLand.PlaneParking.API.Controllers
 
 	public class RecommendViewModel : ViewModel<Slot>
 	{
-		public RecommendViewModel(Slot slot) : base()
+		public RecommendViewModel(Slot slot, string model) : base()
 		{
-			Message = $"Slot {slot.Number} is available for model {slot.Type}";
+			Message = $"Slot {slot.Number} is available for model {model}";
 		}
 		public RecommendViewModel(Exception ex) : base(ex) { }
 	}

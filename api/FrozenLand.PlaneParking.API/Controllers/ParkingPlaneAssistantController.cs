@@ -49,7 +49,7 @@ namespace FrozenLand.PlaneParking.API.Controllers
 			try
 			{
 				var slot = _parkingPlaceAssistant.Recommend(model, new DateTimeRange(DateTime.Now, DateTime.Now.AddDays(1)));
-				return new RecommendViewModel(slot);
+				return new RecommendViewModel(slot, model);
 			}
 			catch (Exception ex)
 			{

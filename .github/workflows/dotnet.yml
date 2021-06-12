@@ -22,8 +22,7 @@ jobs:
       working-directory: api/FrozenLand.PlaneParking.API
       run: dotnet restore FrozenLand.PlaneParking.API.sln
     - name: Build
-      working-directory: api/FrozenLand.PlaneParking.API
-      run: dotnet build --no-restore FrozenLand.PlaneParking.API.sln
+      run: dotnet build --no-restore api/FrozenLand.PlaneParking.API/FrozenLand.PlaneParking.API.sln
     - name: Test
       working-directory: api/FrozenLand.PlaneParking.Core.Tests
       run: dotnet test --no-build --verbosity normal

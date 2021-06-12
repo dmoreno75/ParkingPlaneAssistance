@@ -19,10 +19,8 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      working-directory: api/FrozenLand.PlaneParking.API
-      run: dotnet restore FrozenLand.PlaneParking.API.sln
+      run: dotnet restore api/FrozenLand.PlaneParking.API/FrozenLand.PlaneParking.API.sln
     - name: Build
       run: dotnet build --no-restore api/FrozenLand.PlaneParking.API/FrozenLand.PlaneParking.API.sln
     - name: Test
-      working-directory: api/FrozenLand.PlaneParking.Core.Tests
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal api/FrozenLand.PlaneParking.Core.Tests
